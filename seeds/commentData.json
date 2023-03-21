@@ -1,0 +1,37 @@
+[
+    {
+        "comment": "How do you make a Regex?",
+        "user_id": "3",
+        "post_id": "1"
+    },
+    {
+        "comment": "Javascript is the best language",
+        "user_id": "1",
+        "post_id": "2"
+    },
+    {
+        "comment": "JS is a great language to start with!",
+        "user_id": "2",
+        "post_id": "2"
+    },
+    {
+        "comment": "No one really uses Handlebars anymore",
+        "user_id": "1",
+        "post_id": "3"
+    },
+    {
+        "comment": "Writing CSS is so fun!",
+        "user_id": "2",
+        "post_id": "4"
+    },
+    {
+        "comment": "I use tailwind for all my CSS needs",
+        "user_id": "3",
+        "post_id": "4"
+    },
+    {
+        "comment": "React is the best framework",
+        "user_id": "1",
+        "post_id": "5"
+    }
+]

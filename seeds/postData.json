@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Regex",
+        "body": "Regular Expressions",
+        "user_id": "1"
+    },
+    {
+        "title": "Javascript",
+        "body": "Pros and Cons of Javascript?",
+        "user_id": "2"
+    },
+    {
+        "title": "Handlebars",
+        "body": "Why do people still use Handlebars?",
+        "user_id": "3"
+    },
+    {
+        "title": "CSS",
+        "body": "Do You still write CSS?",
+        "user_id": "4"
+    },
+    {
+        "title": "React",
+        "body": "The future of templating?",
+        "user_id": "3"
+    }
+]
