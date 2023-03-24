@@ -1,0 +1,36 @@
+<ol>
+    <li>
+        <div>
+            <h3>{{post.title}}</h3>
+        </div>
+        <div>
+            <p>By: {{post.User.username}}</p>
+        </div>
+        <div>
+            <p>{{post.body}}</p>
+        </div>
+    </li>
+    <li>
+        <h4>Comments</h4>
+        <div>
+            <ul>
+                {{#each post.Comments}}
+                <li>
+                    <p>{{this.body}}</p>
+                    <p>By: {{this.User.username}}</p>
+                </li>
+                {{/each}}
+            </ul>
+    </li>
+    {{!-- comment form --}}
+    <li>
+        <form id="comment-form">
+            <div>
+                <label for="comment">Comment:</label>
+                <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
+            </div>
+            <button id="comment-submit" type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+        <script src="/js/comment.js"></script>
+    </li>
+</ol>
