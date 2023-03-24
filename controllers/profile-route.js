@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // new post form
-router.get('/new', withAuth, async (req, res) => {
+router.get('/new-post', withAuth, async (req, res) => {
     try {
         res.render('new-post', {
             layout: 'profile',
