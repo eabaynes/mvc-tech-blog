@@ -7,6 +7,7 @@
             <p>By: {{post.User.username}}</p>
         </div>
         <div>
+            <p id="post-id" class="hidden">{{post.id}}</p>
             <p>{{post.body}}</p>
         </div>
     </li>
@@ -27,7 +28,7 @@
         <form id="comment-form">
             <div>
                 <label for="comment">Comment:</label>
-                <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment">
+                <input type="text" class="form-control" id="comment-text" name="comment" placeholder="Comment">
             </div>
             <button id="comment-submit" type="submit" class="btn btn-primary">Post Comment</button>
         </form>
