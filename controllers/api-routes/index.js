@@ -1,6 +1,6 @@
-const commentRoutes = require('./comment-routes');
-const postRoutes = require('./post-routes');
-const userRoutes = require('./user-routes');
+const commentRoutes = require('./comment-route.js');
+const postRoutes = require('./post-route.js');
+const userRoutes = require('./user-route.js');
 const router = require('express').Router();
 
 // Add prefix of `/comments` to routes created in `comment-routes.js`
