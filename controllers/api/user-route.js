@@ -16,16 +16,17 @@ router.get('/', async (req, res) => {
 // route to create a new user
 router.post('/', async (req, res) => {
     try {
-        const userData = { username: req.body.username, password: req.body.password };
-        console.log(userData);
-        const newUser = await User.create(userData);
+        const userData = await User.create({
+            username: req.body.username,
+            password: req.body.password,
+        });
 
         req.session.save(() => {
-            req.session.user_id = newUser.id;
-            req.session.username = newUser.username;
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
             req.session.loggedIn = true;
 
-            res.status(200).json(newUser);
+            res.status(200).json(userData);
         });
 
     } catch (err) {
