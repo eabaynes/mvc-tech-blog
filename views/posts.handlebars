@@ -1,17 +1,17 @@
-<ol>
+<ol class="grid grid-cols-3 m-5 p-3">
     {{#each posts}}
-    <li>
+    <li class="bg-blue-300 rounded-md p-3 m-2 flex flex-col items-center">
         <div>
-            <h3>{{this.title}}</h3>
-        </div>
-        <div>
-            <p>By: {{this.User.username}}</p>
-        </div>
-        <div>
-            <p>Posted on: {{format_date createdAt}}</p>
+            <h3 class="text-xl font-bold">{{this.title}}</h3>
         </div>
         <div>
             <p>{{this.body}}</p>
+        </div>
+        <div class="text-sm">
+            <p>By: {{this.User.username}}</p>
+        </div>
+        <div class="text-xs">
+            <p>Posted on: {{format_date createdAt}}</p>
         </div>
     </li>
     {{/each}}

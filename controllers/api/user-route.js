@@ -1,21 +1,33 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// route to get all users
+router.get('/', async (req, res) => {
+    try {
+        const userData = await User.findAll();
+
+        res.status(200).json(userData);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // route to create a new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create({
-            username: req.body.username,
-            password: req.body.password,
-        });
+        const userData = { username: req.body.username, password: req.body.password };
+        console.log(userData);
+        const newUser = await User.create(userData);
 
         req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.username = userData.username;
+            req.session.user_id = newUser.id;
+            req.session.username = newUser.username;
             req.session.loggedIn = true;
 
-            res.status(200).json(userData);
+            res.status(200).json(newUser);
         });
+
     } catch (err) {
         res.status(400).json(err);
     }
@@ -24,18 +36,14 @@ router.post('/', async (req, res) => {
 // route to log in a user
 router.post('/login', async (req, res) => {
     try {
-        const user = await User.findOne({
-            where: {
-                username: req.body.username,
-            },
-        });
+        const user = await User.findOne({username: req.body.username});
 
         if (!user) {
             res.status(400).json({ message: 'Incorrect username or password, please try again' });
             return;
         }
 
-        const validPassword = await user.checkPassword(req.body.password);
+        const validPassword = user.checkPassword(req.body.password);
 
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect username or password, please try again' });
@@ -49,6 +57,7 @@ router.post('/login', async (req, res) => {
 
             res.json({ user, message: 'You are now logged in!' });
         });
+
     } catch (err) {
         res.status(400).json(err);
     }

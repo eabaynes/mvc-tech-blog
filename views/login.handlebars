@@ -1,14 +1,17 @@
 {{!-- login form --}}
-<form id="login-form">
-    <h2>Login</h2>
-    <div>
+<div class="flex justify-center">
+<form id="login-form" class="flex flex-col items-center bg-blue-300 p-4 mt-10 rounded-md">
+    <h2 class="text-2xl my-3">Login</h2>
+    <div class="flex flex-col">
         <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+        <input type="text" class="my-2" id="username" name="username" placeholder="Username">
     </div>
-    <div>
+    <div class="flex flex-col">
         <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <input type="password" class="my-2" id="password" name="password" placeholder="Password">
     </div>
-    <button id="login-submit" type="submit" class="btn btn-primary">Login</button>
-    <script src="js/login.js"></script>
+    <button id="login-submit" type="submit" class="bg-blue-900 text-white px-2 rounded-md">Login</button>
 </form>
+</div>
+
+<script src="./js/login.js"></script>

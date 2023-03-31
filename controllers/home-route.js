@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { User, Post, Comment } = require('../models');
 
-// Get all posts for homepage
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
-            include: [User],
+            include: [User]
         });
 
         const posts = postData.map((post) => post.get({ plain: true }));
@@ -14,29 +13,34 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+
 });
 
-// Get single post
-router.get('/post/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [User, {
-                model: Comment,
-                include: [User],
-            }],
+            include: [
+                User,
+                {
+                    model: Comment,
+                    include: [User]
+                },
+            ],
         });
 
-        const post = postData.get({ plain: true });
+        if (postData) {
+            const post = postData.get({ plain: true });
 
-        res.render('post', { post });
+            res.render('post', { post });
+        } else {
+            res.status(404).end();
+        }
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-// Login route
 router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
@@ -45,9 +49,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// Signup route
 router.get('/signup', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
