@@ -1,5 +1,5 @@
-const { Sequelize, Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection.js");
+import { Sequelize, Model, DataTypes } from "sequelize";
+import sequelize from "../config/connection.js";
 
 // create our Post model
 class Post extends Model {}
@@ -16,4 +16,4 @@ Post.init(
 );
 
 // export the Post model
-module.exports = Post;
+export default Post;

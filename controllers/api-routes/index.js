@@ -1,6 +1,6 @@
-const commentRoutes = require('./comment-route.js');
-const postRoutes = require('./post-route.js');
-const userRoutes = require('./user-route.js');
+import commentRoutes from './comment-route.js';
+import postRoutes from './post-route.js';
+import userRoutes from './user-route.js';
 const router = require('express').Router();
 
 // Add prefix of `/comments` to routes created in `comment-routes.js`
@@ -10,4 +10,4 @@ router.use('/posts', postRoutes);
 // Add prefix of `/users` to routes created in `user-routes.js`
 router.use('/users', userRoutes);
 
-module.exports = router;
+export default router;

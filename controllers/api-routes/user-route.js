@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+import { User } from '../../models';
 
 // route to create a new user
 router.post('/', async (req, res) => {
@@ -65,4 +65,4 @@ router.post('/logout', (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
