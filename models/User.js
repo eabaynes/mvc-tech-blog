@@ -1,6 +1,6 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../config/connection.js";
-import { compareSync, hash } from "bcrypt";
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection.js");
+const { compareSync, hash } = require("bcrypt");
 
 // create our User model
 class User extends Model {
@@ -54,4 +54,4 @@ User.init(
 );
 
 // export the User model
-export default User;
+module.exports = User;
