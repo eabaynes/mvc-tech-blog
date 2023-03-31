@@ -8,10 +8,9 @@ const commentData = require('./commentData.json');
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    const users = await User.bulkCreate(userData, {
-        individualHooks: true,
-        returning: true,
-    });
+    for (const user of userData) {
+        await User.create(user);
+    }
 
     for (const post of postData) {
         await Post.create({
