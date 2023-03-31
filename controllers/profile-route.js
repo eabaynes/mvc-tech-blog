@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Post } = require('../models');
-const withAuth = require('../utils/auth');
+import { Post } from '../models';
+import withAuth from '../utils/auth';
 
 // Get all posts for the user's profile
 router.get('/', withAuth, async (req, res) => {
@@ -57,4 +57,4 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

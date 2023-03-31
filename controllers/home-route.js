@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+import { User, Post, Comment } from '../models';
 
 // Get all posts for homepage
 router.get('/', async (req, res) => {
@@ -56,4 +56,4 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-module.exports = router;
+export default router;
