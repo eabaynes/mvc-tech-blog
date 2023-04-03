@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 
 // route to create a new user
 router.post('/', async (req, res) => {
+    console.log(req.body, "req.body, HELLOW HEL")
     try {
         const userData = await User.create({
             username: req.body.username,

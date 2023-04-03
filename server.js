@@ -31,15 +31,17 @@ app.use(session(sess));
 const hbs = exphbs.create({ helpers });
 
 // set up handlebars.js engine with custom helpers
-app.set('view engine', 'handlebars');
 app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-// set up routes
-app.use(routes);
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// set up routes
+app.use(routes);
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
