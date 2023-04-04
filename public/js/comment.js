@@ -3,14 +3,13 @@ async function commentSubmitHandler(event) {
 
     const post_id = document.getElementById('post-id').value;
     const comment_text = document.getElementById('comment-text').value.trim();
-    const user_id = req.session.user_id;
 
     if (comment_text) {
-        const response = await fetch(`/api/posts/${post_id}/comments`, {
+        const response = await fetch(`/api/comments`, {
             method: 'POST',
             body: JSON.stringify({
+                post_id: post_id,
                 comment: comment_text,
-                user_id: user_id
                 }),
                 headers: {
                     'Content-Type': 'application/json'
