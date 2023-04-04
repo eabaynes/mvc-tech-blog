@@ -1,18 +1,12 @@
-<div class="flex">
+<div class="flex justify-center">
     {{#each posts}}
-    <li class="bg-blue-300 rounded-md p-3 m-2 flex flex-col items-center">
-        <div class="">
-            <div class="">
+    <li class="bg-blue-300 rounded-md p-3 m-2 flex flex-col items-center justify-center">
                 <h3 class="text-2xl">{{this.title}}</h3>
                 <p class="text-xl">{{this.body}}</p>
                 <p class="text-sm">By: {{this.User.username}}</p>
                 <p class="text-sm">Posted on: {{format_date createdAt}}</p>
-            </div>
-            <div class="">
-                <a class="bg-blue-900 p-1 text-white text-sm" href="/profile/edit-post/{{this.id}}">Edit</a>
-                <a class="bg-blue-900 p-1 text-white text-sm" href="/profile/delete-post/{{this.id}}">Delete</a>
-            </div>
-        </div>
+                <a class="bg-blue-900 p-1 text-white text-sm" href="/profile/edit/{{this.id}}">Edit</a>
+
     </li>
     {{/each}}
 </div>

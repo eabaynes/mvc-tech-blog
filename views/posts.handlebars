@@ -2,7 +2,8 @@
     {{#each posts}}
     <li class="bg-blue-300 rounded-md p-3 m-2 flex flex-col items-center">
         <div>
-            <h3 class="text-xl font-bold">{{this.title}}</h3>
+            <h3 class="text-xl font-bold hover:text-white">
+                <a href="/post/{{this.id}}">{{this.title}}</a></h3>
         </div>
         <div>
             <p>{{this.body}}</p>
