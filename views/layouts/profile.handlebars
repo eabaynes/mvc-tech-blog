@@ -10,25 +10,25 @@
     <link href="../../public/src/output.css" type="text/css" />
     </head>
 
-    <nav>
-        <h1>Tech Blog</h1>
-        <ul>
-            <li>
-                <a href="/">Home</a>
+    <nav class="bg-blue-900 text-white items-center justify-between flex p-10 ">
+        <h1 class="text-3xl">Tech Blog</h1>
+        <ul class="flex text-sm">
+            <li class="mx-3">
+                <a class="nav-link" href="/">Home</a>
             </li>
-            <li>
-                <a href="/profile">Profile</a>
+            <li class="mx-3">
+                <a class="nav-link" href="/profile">Profile</a>
             </li>
-            <li>
-                <a id="logout" href="/logout">Logout</a>
+            <li class="mx-3">
+                <a class="nav-link" id="logout" href="/logout">Logout</a>
                 <script src="/js/logout.js"></script>
             </li>
         </ul>
     </nav>
     <div>
-        <body>
+        <body class="flex flex-col">
             <div>
-                <a href="/profile/new-post">New Post</a>
+                <a class="bg-blue-300 px-2 rounded-sm" href="/profile/new-post">New Post</a>
             </div>
             {{{body}}}
         </body>

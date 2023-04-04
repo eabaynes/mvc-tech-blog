@@ -12,8 +12,8 @@ router.get('/', withAuth, async (req, res) => {
 
         const posts = postData.map((post) => post.get({ plain: true }));
 
-        res.render('all-posts-admin', {
-            layout: 'dashboard',
+        res.render('post-user-view', {
+            layout: 'profile',
             posts
         });
     } catch (err) {
@@ -21,29 +21,29 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/new', withAuth, (req, res) => {
-    res.render('new-post', {
-        layout: 'profile'
-    });
-});
-
-router.get('/edit/:id', withAuth, async (req, res) => {
+router.get("/edit/:id", withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
 
         if (postData) {
             const post = postData.get({ plain: true });
 
-            res.render('edit-post', {
-                layout: 'profile',
-                post
+            res.render("edit-post", {
+                layout: "profile",
+                post,
             });
         } else {
             res.status(404).end();
         }
     } catch (err) {
-        res.redirect('login');
+        res.redirect("login");
     }
+});
+
+router.get("/new", withAuth, (req, res) => {
+    res.render("new-post", {
+        layout: "profile",
+    });
 });
 
 module.exports = router;

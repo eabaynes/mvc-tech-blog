@@ -1,8 +1,18 @@
-<div>
-    {{#each.posts}}
-    <a href="/profile/edit/{{this.id}}">
-    <span>{{title}}</span>
-    <span>{{format_date createdAt}}</span>
-    </a>
+<div class="flex">
+    {{#each posts}}
+    <li class="bg-blue-300 rounded-md p-3 m-2 flex flex-col items-center">
+        <div class="">
+            <div class="">
+                <h3 class="text-2xl">{{this.title}}</h3>
+                <p class="text-xl">{{this.body}}</p>
+                <p class="text-sm">By: {{this.User.username}}</p>
+                <p class="text-sm">Posted on: {{format_date createdAt}}</p>
+            </div>
+            <div class="">
+                <a class="bg-blue-900 p-1 text-white text-sm" href="/profile/edit-post/{{this.id}}">Edit</a>
+                <a class="bg-blue-900 p-1 text-white text-sm" href="/profile/delete-post/{{this.id}}">Delete</a>
+            </div>
+        </div>
+    </li>
     {{/each}}
 </div>
